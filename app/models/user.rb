@@ -26,8 +26,10 @@ class User < ApplicationRecord
 
   #remembers a user in the databse for use in persistent sessions
   def remember
-    self.remember_token = User.new_token
-    self.remember_digest = User.digest(remember_token)
+    begin
+      self.remember_token = User.new_token
+      self.remember_digest = User.digest(remember_token)
+    end while User.exists?(remember_digest: self.remember_digest)
   end
 
   #returns true if the given token matches the digest

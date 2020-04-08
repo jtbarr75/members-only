@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if subject.errors.any? %>
   <div id="errors">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
     </div>

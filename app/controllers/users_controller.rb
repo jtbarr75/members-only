@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -31,14 +32,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "User updated"
-      redirect_to
+      redirect_to @user
     else
       render :edit
     end
   end
 
   def destroy
-    @user = User.find(params[:user])
+    #@user = User.find(params[:user])
   end
 
   private

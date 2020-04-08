@@ -1,0 +1,10 @@
+<li>
+  <% if logged_in? %>
+    <%= link_to post.user.name, user_path(post.user) %> 
+  <% else %>
+    Someone
+  <% end %>
+  posted at <%= post.created_at %> :<br>
+  <%= post.body %>
+</li>
+<br>

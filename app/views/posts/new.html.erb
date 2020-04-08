@@ -1,0 +1,7 @@
+<%= render partial: 'shared/errors', locals: {subject: @post} %>
+<%= form_for @post do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit "Submit" %>
+<% end %>
